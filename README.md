@@ -1,22 +1,33 @@
-# Hello world docker action
+# Build and push docker image to Google Container Registry action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+Opinionated github workflow action to build a docker image from Dockerfile
+and push the image to Google Continer Registry.
+
+Pass all sensitive data using secrets.
 
 ## Inputs
 
-### `who-to-greet`
+### `service_key`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** Google Service Account Key.
 
-## Outputs
+### `google_compute_zone`
 
-### `time`
+### `google_project_id`
 
-The time we greeted you.
+### `gcr_host`
+
+### `image_name`
+
+### `image_tag`
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
+uses: raccoondev/push-docker-gcr
 with:
-  who-to-greet: 'Mona the Octocat'
-
+  service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
+  google_compute_zone: ${{ secrets.GOOGLE_COMPUTE_ZONE }}
+  google_project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+  gcr_host: eu.gcr.io
+  image_name: my_image
+  image_tag: latest

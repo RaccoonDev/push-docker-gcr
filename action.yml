@@ -1,17 +1,24 @@
-# action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Push Docker GCR'
+description: 'Push docker image to Google Container Registry'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  service_key:
+    description: 'Google Service Key to use'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  google_compute_zone:
+    description: 'Google Compute Zone'
+    required: true
+  google_project_id:
+    description: 'Google Project ID'
+    required: true
+  gcr_host:
+    description: 'Google Container Registry Host'
+    default: 'gcr.io'
+  image_name:
+    description: 'Docker Image Name'
+    required: true
+  image_tag:
+    description: 'Docker Image Tag'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
-

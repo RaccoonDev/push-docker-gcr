@@ -1,6 +1,16 @@
-#!/bin/sh -l
+#!/usr/bin/env bash
+set -e
 
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+export GOOGLE_COMPUTE_ZONE=$INPUT_GOOGLE_COMPUTE_ZONE
+export GOOGLE_PROJECT_ID=$INPUT_GOOGLE_PROJECT_ID
+export GCLOUD_SERVICE_KEY=$INPUT_GCLOUD_SERVICE_KEY
 
+IMAGE_NAME=$INPUT_GCR_HOST/$INPUT_GOOGLE_PROJECT_ID/$INPUT_IMAGE_NAME:$INTPUT_IMAGE_TAG
+
+echo "Building image $IMAGE_NAME"
+docker build -t $IMAGE_NAME .
+echo "Done"
+
+echo "Pushing image $IMAGE_NAME"
+docker push $IMAGE_NAME
+echo "Done"
