@@ -25,9 +25,10 @@ Pass all sensitive data using secrets.
 
 uses: raccoondev/push-docker-gcr
 with:
-  service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
-  google_compute_zone: ${{ secrets.GOOGLE_COMPUTE_ZONE }}
-  google_project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
   gcr_host: eu.gcr.io
   image_name: my_image
   image_tag: latest
+  env:
+    GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
+    GOOGLE_COMPUTE_ZONE: ${{ secrets.GOOGLE_COMPUTE_ZONE }}
+    GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
