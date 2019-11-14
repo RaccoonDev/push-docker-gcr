@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-set -e
+#!/bin/sh -l
 
 export GOOGLE_COMPUTE_ZONE=$INPUT_GOOGLE_COMPUTE_ZONE
 export GOOGLE_PROJECT_ID=$INPUT_GOOGLE_PROJECT_ID
