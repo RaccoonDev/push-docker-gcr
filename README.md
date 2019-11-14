@@ -7,10 +7,6 @@ Pass all sensitive data using secrets.
 
 ## Inputs
 
-### `service_key`
-
-**Required** Google Service Account Key.
-
 ### `gcr_host`
 
 Google Container Registry Host
@@ -27,6 +23,16 @@ Name of the image. Should be specified without domain and project.
 
 Image tag to set for the built image.
 
+## Required Environment Variables
+
+### `GCLOUD_SERVICE_KEY`
+
+Service key to use for GCR authentication
+
+### `GOOGLE_PROJECT_ID`
+
+Project id. Used in combination with GCR endpoint to build full docker image.
+
 ## Example usage
 
 ```ylm
@@ -37,6 +43,5 @@ with:
   image_tag: latest
   env:
     GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
-    GOOGLE_COMPUTE_ZONE: ${{ secrets.GOOGLE_COMPUTE_ZONE }}
     GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
 ```
