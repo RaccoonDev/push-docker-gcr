@@ -2,7 +2,7 @@ name: 'Push Docker GCR'
 description: 'Push docker image to Google Container Registry'
 branding:
   color: 'green'
-  label: 'box'
+  icon: 'box'
 inputs:
   gcr_host:
     description: 'Google Container Registry Host'
