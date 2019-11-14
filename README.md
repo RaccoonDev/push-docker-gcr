@@ -11,18 +11,25 @@ Pass all sensitive data using secrets.
 
 **Required** Google Service Account Key.
 
-### `google_compute_zone`
-
-### `google_project_id`
-
 ### `gcr_host`
+
+Google Container Registry Host
+
+- gcrp.io (default)
+- eu.gcr.ui
+- etc
 
 ### `image_name`
 
+Name of the image. Should be specified without domain and project.
+
 ### `image_tag`
+
+Image tag to set for the built image.
 
 ## Example usage
 
+```ylm
 uses: raccoondev/push-docker-gcr
 with:
   gcr_host: eu.gcr.io
@@ -32,3 +39,4 @@ with:
     GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
     GOOGLE_COMPUTE_ZONE: ${{ secrets.GOOGLE_COMPUTE_ZONE }}
     GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
+```
