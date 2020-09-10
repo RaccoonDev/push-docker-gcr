@@ -11,7 +11,7 @@ Pass all sensitive data using secrets.
 
 Google Container Registry Host
 
-- gcrp.io (default)
+- gcr.io (default)
 - eu.gcr.ui
 - etc
 
