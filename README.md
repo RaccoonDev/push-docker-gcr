@@ -1,7 +1,7 @@
 # Build and push docker image to Google Container Registry action
 
 Opinionated github workflow action to build a docker image from Dockerfile
-and push the image to Google Continer Registry.
+and push the image to Google Container Registry.
 
 Pass all sensitive data using secrets.
 
