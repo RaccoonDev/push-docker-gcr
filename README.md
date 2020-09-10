@@ -12,7 +12,7 @@ Pass all sensitive data using secrets.
 Google Container Registry Host
 
 - gcr.io (default)
-- eu.gcr.ui
+- eu.gcr.io
 - etc
 
 ### `image_name`
