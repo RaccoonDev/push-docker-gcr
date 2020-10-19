@@ -1,6 +1,6 @@
 FROM docker:19.03.2
-LABEL "repository"="https://github.com/raccoondev/push-docker-gcr"
-LABEL "maintainer"="Dmytro Mykhailov"
+LABEL "repository"="https://github.com/Industrial/push-docker-gcr"
+LABEL "maintainer"="Tom Wieland"
 
 RUN apk update \
   && apk upgrade \
