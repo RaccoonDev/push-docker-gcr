@@ -1,4 +1,4 @@
-name: 'Push Docker GCR'
+name: 'Push Docker GCR (custom Dockerfile)'
 description: 'Push docker image to Google Container Registry'
 branding:
   color: 'green'
