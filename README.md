@@ -12,7 +12,7 @@ Pass all sensitive data using secrets.
 Google Container Registry Host
 
 - gcrp.io (default)
-- eu.gcr.ui
+- eu.gcr.io
 - etc
 
 ### `image_name`
@@ -43,8 +43,9 @@ Project id. Used in combination with GCR endpoint to build full docker image.
 uses: raccoondev/push-docker-gcr
 with:
   gcr_host: eu.gcr.io
-  image_name: my_image
+  image_name: api
   image_tag: latest
+  context: ./services/api
   env:
     GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
     GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
