@@ -6,6 +6,7 @@ branding:
 inputs:
   gcr_host:
     description: 'Google Container Registry Host'
+    required: true
     default: 'gcr.io'
   image_name:
     description: 'Docker Image Name'
@@ -13,6 +14,10 @@ inputs:
   image_tag:
     description: 'Docker Image Tag'
     required: true
+  dockerfile:
+    description: 'Path to Dockerfile'
+    required: true
+    default: '.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
