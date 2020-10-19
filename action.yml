@@ -14,8 +14,8 @@ inputs:
   image_tag:
     description: 'Docker Image Tag'
     required: true
-  dockerfile:
-    description: 'Path to Dockerfile'
+  context:
+    description: 'Context path'
     required: true
     default: '.'
 runs:

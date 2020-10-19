@@ -23,6 +23,10 @@ Name of the image. Should be specified without domain and project.
 
 Image tag to set for the built image.
 
+### `context`
+
+Path to the context directory (containing the Dockerfile).
+
 ## Required Environment Variables
 
 ### `GCLOUD_SERVICE_KEY`
