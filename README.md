@@ -1,52 +1,46 @@
-# Build and push docker image to Google Container Registry action
-
-Opinionated github workflow action to build a docker image from Dockerfile
-and push the image to Google Continer Registry.
-
-Pass all sensitive data using secrets.
+# Build Docker Image and Push into Google Container Registry
 
 ## Inputs
+
+### `docker_image_name`
+
+Docker Image Name
+
+Name of the image. Should be specified without domain and project.
+
+### `docker_image_tag`
+
+Image tag to set for the built image.
+
+### `docker_context`
+
+Path to the context directory (containing the Dockerfile).
+
+Default: `.`
 
 ### `gcr_host`
 
 Google Container Registry Host
 
-- gcrp.io (default)
-- eu.gcr.io
-- etc
+Default: `gcr.io`
 
-### `image_name`
+### `gcr_project_id`
 
-Name of the image. Should be specified without domain and project.
+Google Cloud Project ID.
 
-### `image_tag`
+### `gcr_service_key`
 
-Image tag to set for the built image.
-
-### `context`
-
-Path to the context directory (containing the Dockerfile).
-
-## Required Environment Variables
-
-### `GCLOUD_SERVICE_KEY`
-
-Service key to use for GCR authentication
-
-### `GOOGLE_PROJECT_ID`
-
-Project id. Used in combination with GCR endpoint to build full docker image.
+Google Cloud Service Key (JSON).
 
 ## Example usage
 
 ```ylm
-uses: raccoondev/push-docker-gcr
+uses: Industrial/push-docker-gcr
 with:
-  gcr_host: eu.gcr.io
-  image_name: api
-  image_tag: latest
-  context: ./services/api
-  env:
-    GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
-    GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
+  docker_image_name: api
+  docker_image_tag: latest
+  docker_context: ./services/api
+  gcr_host: gcr.io
+  gcr_project_id: ${{ secrets.GCLOUD_PROJECT_ID }}
+  gcr_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
 ```

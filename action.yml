@@ -1,23 +1,29 @@
-name: 'Push Docker GCR (custom Dockerfile)'
+name: 'Push Docker Image to GCR'
 description: 'Push docker image to Google Container Registry'
 branding:
   color: 'green'
   icon: 'box'
 inputs:
-  gcr_host:
-    description: 'Google Container Registry Host'
-    required: true
-    default: 'gcr.io'
-  image_name:
+  docker_image_name:
     description: 'Docker Image Name'
     required: true
-  image_tag:
+  docker_image_tag:
     description: 'Docker Image Tag'
     required: true
-  context:
-    description: 'Context path'
+  docker_context:
+    description: 'Context path (Default: .)'
     required: true
     default: '.'
+  gcr_host:
+    description: 'Google Container Registry Host (Default: gcr.io)'
+    required: true
+    default: 'gcr.io'
+  gcr_project_id:
+    description: 'Google Container Registry Project ID'
+    required: true
+  gcr_service_key:
+    description: 'Google Container Registry Service Key'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
